@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Website for IP address lookup: automatically show the visitor’s own IP, allow users to enter a domain/IP to look up, and optionally display additional info (ISP/location) on request.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-ip-lookup-ui-that-a-automatically-fetches-and-displays-the-visitor-s-public-ip-address-on-page-load-and-b-provides-an-input-where-the-user-can-enter-either-a-domain-name-or-an-ip-address-to-look-up",
+      "title": "Create a single-page IP lookup UI that (a) automatically fetches and displays the visitor’s public IP address on page load, and (b) provides an input where the user can enter either a domain name or an IP address to look up.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-the-raw-ip-address-by-default-for-both-the-visitor-ip-and-lookup-results-and-provide-a-user-controlled-option-to-request-and-reveal-additional-details-e-g-isp-and-approximate-location-only-when-the-user-asks-for-it",
+      "title": "Display the raw IP address by default for both the visitor IP and lookup results, and provide a user-controlled option to request and reveal additional details (e.g., ISP and approximate location) only when the user asks for it.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-ip-detection-and-lookup-data-fetching-using-react-query-including-loading-and-error-states-for-both-a-visitor-ip-auto-fetch-and-b-domain-ip-lookups",
+      "title": "Implement the IP detection and lookup data fetching using React Query, including loading and error states for both (a) visitor IP auto-fetch and (b) domain/IP lookups.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-use-a-coherent-distinctive-visual-theme-colors-typography-spacing-and-component-styling-and-apply-it-consistently-across-the-page-header-input-section-results-and-states-using-tailwind-existing-ui-components-without-editing-immutable-ui-component-source-files",
+      "title": "Use a coherent, distinctive visual theme (colors, typography, spacing, and component styling) and apply it consistently across the page (header, input section, results, and states) using Tailwind + existing UI components (without editing immutable UI component source files).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Automatically display the visitor’s own public IP address on page load",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Allow users to enter a domain name or IP address to look up",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Display raw IP by default and optionally show extra info (e.g., ISP, location) when requested by the user",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "IP Lookup Website (visitor IP + domain/IP lookup with optional ISP/location details)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

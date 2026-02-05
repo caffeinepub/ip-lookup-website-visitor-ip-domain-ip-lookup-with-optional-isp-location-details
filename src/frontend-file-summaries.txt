@@ -1,0 +1,10 @@
+{
+  "frontend/src/App.tsx": "Main application component that renders the IP lookup page and toast notifications.",
+  "frontend/src/pages/IpLookupPage.tsx": "Complete IP lookup page with auto-detected visitor IP display, domain/IP lookup form, optional extra details toggle, and responsive layout with loading/error states (fixed to use isPending instead of isLoading for mutation).",
+  "frontend/src/hooks/useVisitorIp.ts": "React Query hook that automatically fetches the visitor's public IP address on mount with optional ISP/location details.",
+  "frontend/src/hooks/useIpLookup.ts": "React Query mutation hook for performing IP/domain lookups with optional extra details.",
+  "frontend/src/lib/ipLookup.ts": "Helper functions for IP/domain validation and fetching IP information from ipapi.co API with error handling.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as backend queries are not needed for this client-side IP lookup application.",
+  "frontend/src/index.css": "Global styles with warm coral/orange OKLCH color system for both light and dark modes, avoiding generic purple/blue aesthetics.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom font families (Inter, JetBrains Mono) and extended theme tokens for distinctive design."
+}

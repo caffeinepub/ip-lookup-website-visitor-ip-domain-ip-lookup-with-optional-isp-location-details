@@ -1,0 +1,19 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no backend logic.",
+  "feature_evidence.json": "Structured feature evidence listing implemented features, related files, components, and test IDs.",
+  "frontend-file-summaries.txt": "Text file containing short descriptions of key frontend source files.",
+  "frontend/index.css": "Tailwind base stylesheet defining OKLCH color variables and dark mode overrides.",
+  "frontend/index.html": "HTML entry point mounting the React app and loading main.tsx.",
+  "frontend/src/App.tsx": "Root React component rendering the IP lookup page and toast notifications.",
+  "frontend/src/hooks/useActor.ts": "Hook that manages backend actor creation and refresh based on Internet Identity state.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Context and provider for managing Internet Identity auth, identity loading, and login flow.",
+  "frontend/src/hooks/useIpLookup.ts": "React Query mutation hook for performing IP or domain lookups via fetchIpInfo.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file; no backend queries used.",
+  "frontend/src/hooks/useVisitorIp.ts": "React Query hook that auto-fetches the visitor’s IP with optional details.",
+  "frontend/src/index.css": "Global Tailwind styles defining custom OKLCH theme, dark mode, and utility classes.",
+  "frontend/src/lib/ipLookup.ts": "Validation helpers and fetchIpInfo function for retrieving IP data from ipapi.co.",
+  "frontend/src/main.tsx": "Application entry mounting React, initializing QueryClient, and wrapping with providers.",
+  "frontend/src/pages/IpLookupPage.tsx": "React page that fetches and displays the visitor’s IP, allows manual IP/domain lookup, and toggles optional extra details using custom hooks.",
+  "frontend/tailwind.config.js": "Tailwind configuration defining theme colors, fonts, container settings, animations, and plugin usage for consistent UI styling.",
+  "project_state.json": "Project metadata describing features, requirements, and pending requests for an IP lookup website."
+}

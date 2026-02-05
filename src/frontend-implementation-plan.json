@@ -1,0 +1,117 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "IP Lookup Website (React + React Query + Tailwind)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a single-page UI that auto-detects and displays the visitor public IP on load and allows domain/IP lookup via an input + submit action.",
+      "acceptanceCriteria": [
+        "On initial page load, the app shows the visitor’s detected public IP without requiring any user interaction.",
+        "The page includes a text input for a domain or IP and a submit action (button and/or Enter key).",
+        "Submitting a value triggers a lookup and displays the resulting IP (or an error message if invalid/unresolvable)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page app shell and render the IP lookup page as the primary view (no extra routes/pages). Use shadcn-ui layout primitives (e.g., Card) if available for structure; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/IpLookupPage.tsx",
+          "operation": "create",
+          "description": "Implement the IP lookup page UI: header, visitor IP display area, domain/IP input, and submit action (button + Enter). Use shadcn-ui Input and Button components (or existing UI components in the project) for consistent controls; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/lib/ipLookup.ts",
+          "operation": "create",
+          "description": "Add frontend-only helper functions for validating input (domain vs IP) and performing lookups via a public IP/lookup data source (no backend changes)."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Ensure the document title and metadata remain aligned with the IP Lookup app and English UX copy (if any adjustments are needed for the single-page focus)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Show only raw IPs by default and add a user-controlled toggle to request/reveal optional ISP/location details on demand.",
+      "acceptanceCriteria": [
+        "By default, the UI displays only the IP address result (no ISP/location fields shown).",
+        "The UI includes an explicit control (e.g., a checkbox or toggle) to request extra info.",
+        "When extra info is enabled, the UI displays additional fields such as ISP and location if available from the data source.",
+        "When extra info is disabled again, those additional fields are hidden and not displayed."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/IpLookupPage.tsx",
+          "operation": "modify",
+          "description": "Add an explicit UI control (checkbox/toggle) for “Show extra details” and conditionally render ISP/location fields only when enabled. Use a shadcn-ui Switch or Checkbox component if available; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/lib/ipLookup.ts",
+          "operation": "modify",
+          "description": "Extend lookup helpers to optionally request additional details when explicitly enabled, while keeping the default behavior as raw IP-only."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Use React Query for visitor IP auto-fetch and for submitted domain/IP lookups, including loading and error states and support for repeated lookups.",
+      "acceptanceCriteria": [
+        "While fetching, the UI clearly indicates a loading state for the relevant request.",
+        "If a request fails (network error, invalid input, lookup failure), the UI shows a readable English error message and does not crash.",
+        "Repeated lookups update the displayed result accordingly."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useVisitorIp.ts",
+          "operation": "create",
+          "description": "Create a React Query hook to auto-fetch the visitor public IP on mount, returning data/loading/error state for the UI to consume."
+        },
+        {
+          "path": "frontend/src/hooks/useIpLookup.ts",
+          "operation": "create",
+          "description": "Create a React Query hook (query or mutation) to run lookups for a user-submitted domain/IP, supporting repeated submissions and returning data/loading/error state."
+        },
+        {
+          "path": "frontend/src/pages/IpLookupPage.tsx",
+          "operation": "modify",
+          "description": "Wire the page to the React Query hooks: show distinct loading states for visitor detection vs lookup submission, render readable English error messages, and update results on repeated lookups."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Confirm React Query provider configuration supports the new hooks (e.g., sensible defaults for retries to avoid confusing error loops) while keeping the existing app providers intact."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Apply a coherent distinctive visual theme with Tailwind and existing UI components, consistently styled across header, inputs, results, and states without editing immutable UI component files.",
+      "acceptanceCriteria": [
+        "The UI has a consistent design system (color palette, typography scale, spacing) across all sections.",
+        "Interactive elements (inputs, buttons, toggles) have clear hover/focus styles and accessible contrast.",
+        "No changes are required in any frontend immutablePaths; styling is achieved through composition and Tailwind usage in app-specific components/pages."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add global Tailwind layers and a cohesive theme via CSS variables/utility composition (typography, background/foreground, spacing defaults) to support consistent styling across the page without modifying immutable UI component sources."
+        },
+        {
+          "path": "frontend/src/pages/IpLookupPage.tsx",
+          "operation": "modify",
+          "description": "Apply consistent Tailwind styling for layout, typography, spacing, and interactive states across header/input/results/loading/error sections. Prefer composition with existing shadcn-ui components (Button/Input/Switch/Checkbox, Card) for consistent styling; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Refine theme tokens (colors/radius/shadows/typography presets) if needed to achieve a distinctive, consistent look across the app while staying within Tailwind configuration (no edits to immutable UI component files)."
+        }
+      ]
+    }
+  ]
+}
