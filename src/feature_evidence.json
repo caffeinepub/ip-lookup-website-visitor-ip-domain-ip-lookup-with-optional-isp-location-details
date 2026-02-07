@@ -2,13 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-single-page-ip-lookup-ui-that-a-automatically-fetches-and-displays-the-visitor-s-public-ip-address-on-page-load-and-b-provides-an-input-where-the-user-can-enter-either-a-domain-name-or-an-ip-address-to-look-up",
-      "featureTitle": "Create a single-page IP lookup UI that (a) automatically fetches and displays the visitor’s public IP address on page load, and (b) provides an input where the user can enter either a domain name or an IP address to look up.",
+      "featureId": "feature-update-the-app-s-publish-deployment-domain-slug-to-a-valid-value-derived-from-the-requested-name-ip-look-up-that-satisfies-the-platform-rules-5-50-characters-letters-numbers-and-hyphens-only-use-ip-look-up",
+      "featureTitle": "Update the app’s publish/deployment domain (slug) to a valid value derived from the requested name “ip look up” that satisfies the platform rules (5–50 characters; letters, numbers, and hyphens only). Use: \"ip-look-up\".",
       "files": [
-        "frontend/index.html",
-        "frontend/src/App.tsx",
-        "frontend/src/lib/ipLookup.ts",
-        "frontend/src/pages/IpLookupPage.tsx"
+        "frontend/index.html"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -19,66 +16,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-display-the-raw-ip-address-by-default-for-both-the-visitor-ip-and-lookup-results-and-provide-a-user-controlled-option-to-request-and-reveal-additional-details-e-g-isp-and-approximate-location-only-when-the-user-asks-for-it",
-      "featureTitle": "Display the raw IP address by default for both the visitor IP and lookup results, and provide a user-controlled option to request and reveal additional details (e.g., ISP and approximate location) only when the user asks for it.",
-      "files": [
-        "frontend/src/lib/ipLookup.ts",
-        "frontend/src/pages/IpLookupPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-the-ip-detection-and-lookup-data-fetching-using-react-query-including-loading-and-error-states-for-both-a-visitor-ip-auto-fetch-and-b-domain-ip-lookups",
-      "featureTitle": "Implement the IP detection and lookup data fetching using React Query, including loading and error states for both (a) visitor IP auto-fetch and (b) domain/IP lookups.",
-      "files": [
-        "frontend/src/hooks/useIpLookup.ts",
-        "frontend/src/hooks/useVisitorIp.ts",
-        "frontend/src/main.tsx",
-        "frontend/src/pages/IpLookupPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-use-a-coherent-distinctive-visual-theme-colors-typography-spacing-and-component-styling-and-apply-it-consistently-across-the-page-header-input-section-results-and-states-using-tailwind-existing-ui-components-without-editing-immutable-ui-component-source-files",
-      "featureTitle": "Use a coherent, distinctive visual theme (colors, typography, spacing, and component styling) and apply it consistently across the page (header, input section, results, and states) using Tailwind + existing UI components (without editing immutable UI component source files).",
-      "files": [
-        "frontend/src/index.css",
-        "frontend/src/pages/IpLookupPage.tsx",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
       ],
       "confidence": "high"
     }

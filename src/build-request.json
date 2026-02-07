@@ -1,99 +1,38 @@
 {
   "kind": "build_request",
-  "title": "IP Lookup Website (visitor IP + domain/IP lookup with optional ISP/location details)",
+  "title": "Fix publish domain slug to allow deployment",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Create a single-page IP lookup UI that (a) automatically fetches and displays the visitor’s public IP address on page load, and (b) provides an input where the user can enter either a domain name or an IP address to look up.",
-      "target": "frontend",
+      "text": "Update the app’s publish/deployment domain (slug) to a valid value derived from the requested name “ip look up” that satisfies the platform rules (5–50 characters; letters, numbers, and hyphens only). Use: \"ip-look-up\".",
+      "target": "unknown",
       "source": {
         "messageIds": [
-          "msg-2",
-          "msg-4",
-          "msg-6"
+          "msg-6",
+          "msg-10",
+          "msg-11"
         ],
         "quotes": [
-          "make a website to find IP address",
-          "the site should  show the visitor’s own IP address automatically, or allow entering a domain/IP to look up?",
-          "yes plz"
+          "Domain ip-lookup-website-(visitor-ip-+-domain/ip-lookup-w must be between 5 and 50 characters and contain only letters, numbers, and hyphens. i can not because of this so fix it",
+          "name it",
+          "ip look up"
         ]
       },
       "acceptanceCriteria": [
-        "On initial page load, the app shows the visitor’s detected public IP without requiring any user interaction.",
-        "The page includes a text input for a domain or IP and a submit action (button and/or Enter key).",
-        "Submitting a value triggers a lookup and displays the resulting IP (or an error message if invalid/unresolvable)."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Display the raw IP address by default for both the visitor IP and lookup results, and provide a user-controlled option to request and reveal additional details (e.g., ISP and approximate location) only when the user asks for it.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "the site should display only the raw IP, plus also extra info (ISP, location, etc.) if the user asked for it"
-        ]
-      },
-      "acceptanceCriteria": [
-        "By default, the UI displays only the IP address result (no ISP/location fields shown).",
-        "The UI includes an explicit control (e.g., a checkbox or toggle) to request extra info.",
-        "When extra info is enabled, the UI displays additional fields such as ISP and location if available from the data source.",
-        "When extra info is disabled again, those additional fields are hidden and not displayed."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Implement the IP detection and lookup data fetching using React Query, including loading and error states for both (a) visitor IP auto-fetch and (b) domain/IP lookups.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2",
-          "msg-4"
-        ],
-        "quotes": [
-          "make a website to find IP address",
-          "the site should  show the visitor’s own IP address automatically, or allow entering a domain/IP to look up?"
-        ]
-      },
-      "acceptanceCriteria": [
-        "While fetching, the UI clearly indicates a loading state for the relevant request.",
-        "If a request fails (network error, invalid input, lookup failure), the UI shows a readable English error message and does not crash.",
-        "Repeated lookups update the displayed result accordingly."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Use a coherent, distinctive visual theme (colors, typography, spacing, and component styling) and apply it consistently across the page (header, input section, results, and states) using Tailwind + existing UI components (without editing immutable UI component source files).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2",
-          "msg-6"
-        ],
-        "quotes": [
-          "make a website to find IP address",
-          "yes plz"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The UI has a consistent design system (color palette, typography scale, spacing) across all sections.",
-        "Interactive elements (inputs, buttons, toggles) have clear hover/focus styles and accessible contrast.",
-        "No changes are required in any frontend immutablePaths; styling is achieved through composition and Tailwind usage in app-specific components/pages."
+        "The configured publish/deployment domain is exactly \"ip-look-up\".",
+        "A publish/deploy attempt no longer fails with the domain validation error about invalid characters/length.",
+        "No user-facing UI text is changed as part of this fix."
       ]
     }
   ],
   "constraints": [
     "Use English for any user-facing text.",
-    "Do not edit files under frontend immutablePaths (compose existing UI components instead).",
-    "Do not add additional backend services; keep within the single-actor Motoko backend architecture if backend changes become necessary."
+    "Do not edit any files under frontend/src/components/ui or other frontend.immutablePaths."
   ],
   "nonGoals": [
-    "Storing user lookup history or analytics.",
-    "Providing real-time tracking, push notifications, or third-party auth beyond Internet Identity.",
-    "Guaranteeing geolocation/ISP accuracy beyond what the chosen public IP data source returns."
+    "Adding new IP lookup features or changing lookup behavior.",
+    "Changing styling, layout, or copy on the IP lookup page."
   ],
   "imageRequirements": {
     "required": [],

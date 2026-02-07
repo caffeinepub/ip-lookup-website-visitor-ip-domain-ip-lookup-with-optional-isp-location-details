@@ -6,5 +6,6 @@
   "frontend/src/lib/ipLookup.ts": "Helper functions for IP/domain validation and fetching IP information from ipapi.co API with error handling.",
   "frontend/src/hooks/useQueries.ts": "Empty placeholder file as backend queries are not needed for this client-side IP lookup application.",
   "frontend/src/index.css": "Global styles with warm coral/orange OKLCH color system for both light and dark modes, avoiding generic purple/blue aesthetics.",
-  "frontend/tailwind.config.js": "Tailwind configuration with custom font families (Inter, JetBrains Mono) and extended theme tokens for distinctive design."
+  "frontend/tailwind.config.js": "Tailwind configuration with custom font families (Inter, JetBrains Mono) and extended theme tokens for distinctive design.",
+  "frontend/index.html": "HTML entry point with deployment domain slug configured as \"ip-look-up\" via meta tag, maintaining the original user-facing title."
 }
